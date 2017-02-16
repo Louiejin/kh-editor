@@ -1,0 +1,24 @@
+<div class="sidebar-inner c-overflow font-size-14">
+
+    <ul class="main-menu">
+        <li data-ui-sref-active="active" has-permission="ROLE_ADMIN">
+            <a href="#/user/list" ng-click="sidebarStat($event)"><i class="zmdi zmdi-accounts-outline"></i>
+                User List </a></li>
+        <li data-ui-sref-active="active" has-permission="ROLE_ADMIN">
+            <a href="#/article/list" ng-click="sidebarStat($event)"><i class="zmdi zmdi-file-text"></i>
+                Article List </a></li>
+        <li data-ui-sref-active="active" has-permission="ROLE_USER">
+            <a href="#/article/editor/list" ng-click="sidebarStat($event)"><i class="zmdi zmdi-file-text"></i>
+                My Articles </a></li>
+        <li data-ui-sref-active="active" has-permission="ROLE_USER">
+            <a href="#/article/available/list" ng-click="sidebarStat($event)"><i class="zmdi zmdi-file-add"></i>
+                Available Articles </a></li>
+        <li is-authenticated>
+            <a href="" ng-click="sidebarStat($event); logout()"><i class="zmdi zmdi-lock"></i>
+                Logout </a></li>
+        <li is-not-authenticated>
+            <a href="#/login" ng-click="sidebarStat($event);"><i class="zmdi zmdi-lock-open"></i>
+                Login </a></li>
+    </ul>
+
+</div>
