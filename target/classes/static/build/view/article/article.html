@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <form class="card" name="articleForm" id="articleForm" novalidate autocomplete="off" ng-submit="save()" ng-autodisable>
+                <div class="card-header bgm-lightgreen m-b-20">
+                    <h2 ng-if="article.id">Edit Article</h2>
+                    <h2 ng-if="!article.id">New Article</h2>
+                </div>
+                <div class="card-body card-padding">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group fg-float">
+                                <div class="fg-line">
+                                    <input type="text" name="article_title" ng-model="article.title" required class="form-control fg-input">
+                                </div>
+                                <div ng-messages="articleForm.article_title.$error" ng-if="articleForm.$submitted">
+                                    <small class="color-red" ng-message="required">This is required.</small>
+                                </div>
+                                <label class="fg-label">Title</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group fg-float">
+                                <div class="fg-line">
+                                    <textarea msd-elastic="\n" name="article_body" ng-model="article.body" required class="form-control fg-input">
+                                    </textarea>
+                                </div>
+                                <div ng-messages="articleForm.article_body.$error" ng-if="articleForm.$submitted">
+                                    <small class="color-red" ng-message="required">This is required.</small>
+                                </div>
+                                <label class="fg-label">Body</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 text-center p-b-30">
+                        <button class="btn btn-primary bgm-lightgreen" type="submit">Save&nbsp;
+                            <i class="zmdi zmdi-save"></i>
+                        </button>
+                        <button class="btn btn-warning" type="button" ng-click="remove()" ng-if="article.id">Delete&nbsp;
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                        <a href="#/article/list" class="btn btn-default" type="submit">Cancel&nbsp;
+                            <i class="zmdi zmdi-close"></i>
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

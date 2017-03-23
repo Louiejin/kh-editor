@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <div class="listview lv-bordered lv-lg">
+                <div class="lv-header-alt bgm-lightgreen clearfix">
+
+                    <span class="listview-title">Available Articles</span>
+
+                    <div class="lvh-search" data-ng-if="pageState.listviewSearchStat" data-ng-click="pageState.listviewSearchStat">
+                        <input id="employee_search" ng-focus="pageState.listviewSearchStat" ng-model="pageable.query"
+                               type="text" placeholder="Search ..." class="lvhs-input" ng-model-options="{debounce: 500}" ng-change="query()">
+                        <i data-ng-click="pageState.listviewSearchStat = false; pageable.query = null; query()"
+                           class="lvh-search-close">&times;</i>
+                    </div>
+
+                    <ul class="lv-actions actions">
+                        <li>
+                            <a href="" data-ng-click="pageState.listviewSearchStat = true" event-focus="click" event-focus-id="employee_search">
+                                <i class="zmdi zmdi-search"></i>
+                            </a>
+                        </li>
+                        <li class="dropdown" dropdown>
+                            <a href="" dropdown-toggle>
+                                <i class="zmdi zmdi-sort"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li>
+                                    <a href="" ng-class="{'f-bold' : pageable.sort == 'updated,desc'}"
+                                       ng-click="sort('updated,desc')">Last Modified</a>
+                                </li>
+                                <li>
+                                    <a href="" ng-class="{'f-bold' : pageable.sort == 'title,asc'}"
+                                       ng-click="sort('title,asc')">Title (A-Z)</a>
+                                </li>
+                                <li>
+                                    <a href="" ng-class="{'f-bold' : pageable.sort == 'title,desc'}"
+                                       ng-click="sort('title,desc')">Title (Z-A)</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#/article/editor/list">
+                                <i class="zmdi zmdi-file-text"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" ng-click="query()">
+                                <i class="zmdi zmdi-refresh-sync"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="lv-body">
+                    <div class="lv-item media bgm-white" ng-repeat="article in articles">
+                        <div class="media-body">
+                            <div class="lv-title">{{article.title}}</div>
+                            <div class="lv-actions actions" tooltip="Claim" ng-click="claim(article, $index)">
+                                <a href>
+                                    <i class="zmdi zmdi-file-add c-black"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
